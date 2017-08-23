@@ -13,6 +13,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by User on 7/17/2017.
  */
@@ -20,26 +23,11 @@ import java.util.List;
 public class NewsAdapter extends ArrayAdapter<NewsSegment> {
 
     private static final String LOG_TAG = NewsAdapter.class.getName();
-   
 
-    public NewsAdapter(Context context, List<NewsSegment> newsList){
-      super(context,0,newsList);
 
-    }
+    public NewsAdapter(Context context, List<NewsSegment> newsList) {
+        super(context, 0, newsList);
 
-    public class NewsViewHolder {
-        TextView newsTitleView;
-        TextView newsSectionView;
-        TextView newsDateView;
-        TextView newsAuthorView;
-
-        public NewsViewHolder(View itemView){
-            newsTitleView = (TextView)itemView.findViewById(R.id.newsTitletv);
-            newsSectionView = (TextView)itemView.findViewById(R.id.newsSectiontv);
-            newsAuthorView = (TextView)itemView.findViewById(R.id.newsAuthortv);
-            newsDateView = (TextView)itemView.findViewById(R.id.newsDatetv);
-
-        }
     }
 
     /**
@@ -100,6 +88,7 @@ public class NewsAdapter extends ArrayAdapter<NewsSegment> {
 
         return convertView;
     }
+
     /**
      * Method to check if Published Date exists, then format it if the extracted date is a valid date
      */
@@ -114,12 +103,26 @@ public class NewsAdapter extends ArrayAdapter<NewsSegment> {
         try {
             Date dt = inputFormat.parse(dateNew);
             dateFormatted = newFormat.format(dt);
-        }
-        catch(ParseException pe) {
+        } catch (ParseException pe) {
             Log.e(LOG_TAG, "Problem formatting input Date", pe);
         }
 
         return dateFormatted;
+    }
+
+    public class NewsViewHolder {
+        @BindView(R.id.newsTitletv)
+        TextView newsTitleView;
+        @BindView(R.id.newsSectiontv)
+        TextView newsSectionView;
+        @BindView(R.id.newsDatetv)
+        TextView newsDateView;
+        @BindView(R.id.newsAuthortv)
+        TextView newsAuthorView;
+
+        public NewsViewHolder(View itemView) {
+            ButterKnife.bind(this, itemView);
+        }
     }
 
 

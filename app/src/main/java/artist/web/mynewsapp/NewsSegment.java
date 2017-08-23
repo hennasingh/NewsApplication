@@ -6,17 +6,29 @@ package artist.web.mynewsapp;
 
 public class NewsSegment {
 
-    /** News Title */
+    /**
+     * News Title
+     */
     private String newsTitle;
 
-    /** News Section */
+    /**
+     * News Section
+     */
     private String newsSection;
 
-    /** News Published Date */
+    /**
+     * News Published Date
+     */
     private String newsPublishedDate;
 
-    /** News Author */
+    /**
+     * News Author
+     */
     private String newsAuthor;
+    /**
+     * News Web URL
+     */
+    private String newsUrl;
 
     public NewsSegment(String newsTitle, String newsSection,
                        String newsPublishedDate, String newsAuthor, String newsUrl) {
@@ -46,7 +58,4 @@ public class NewsSegment {
     public String getNewsUrl() {
         return newsUrl;
     }
-
-    /** News Web URL */
-    private String newsUrl;
 }

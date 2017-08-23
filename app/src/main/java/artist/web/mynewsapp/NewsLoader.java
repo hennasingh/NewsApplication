@@ -29,7 +29,7 @@ public class NewsLoader extends AsyncTaskLoader<List<NewsSegment>> {
     @Override
     public List<NewsSegment> loadInBackground() {
 
-        if(newsUrl==null){
+        if (newsUrl == null) {
             return null;
         }
         // Perform network request, parse the response, and extract a list of news items

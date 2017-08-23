@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,22 +14,23 @@
             android:id="@+id/list_news"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/activity_vertical_margin"
-            android:orientation="vertical"
+            android:clickable="true"
             android:divider="@android:color/transparent"
-            android:dividerHeight="@dimen/activity_vertical_margin"/>
+            android:dividerHeight="@dimen/activity_vertical_margin"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_vertical_margin" />
     </android.support.v4.widget.SwipeRefreshLayout>
 
     <!-- Empty view for scenario when list has no items -->
     <TextView
         android:id="@+id/text_emptyView"
         android:layout_width="wrap_content"
-        android:layout_marginBottom="@dimen/dimen_10dp"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/dimen_10dp"
         android:gravity="center"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="@android:color/black"
-        android:layout_height="wrap_content"
         tools:text="@string/placeholder_empty_text" />
 
     <!-- Loading indicator shown before first load -->
@@ -39,6 +39,6 @@
         style="@style/Widget.AppCompat.ProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>

@@ -33,19 +33,20 @@ public class NewsFragment extends Fragment implements LoaderCallbacks<List<NewsS
 
     public static final String LOG_TAG = NewsFragment.class.getName();
 
-    /** Guardian API Base URL */
+    /**
+     * Guardian API Base URL
+     */
     private static final String API_BASE_URL = "http://content.guardianapis.com/search?q=";
     private static final String API_SEARCH_URL = "https://content.guardianapis.com/search?section=";
-
+    public static List<NewsSegment> newsList;
     private NewsAdapter newsAdapter;
     private TextView emptyStateTextView;
-    public static List<NewsSegment> newsList;
     private ListView newsListView;
     private SwipeRefreshLayout swipeRefreshLayout;
     private int loaderId;
     private View homeView;
 
-    public static NewsFragment newInstance(String newsSection, int menuPosition){
+    public static NewsFragment newInstance(String newsSection, int menuPosition) {
         NewsFragment newsFragment = new NewsFragment();
         Bundle args = new Bundle();
         args.putString("section", newsSection);
@@ -58,21 +59,21 @@ public class NewsFragment extends Fragment implements LoaderCallbacks<List<NewsS
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        homeView = inflater.inflate(R.layout.news_list_item,container,false);
+        homeView = inflater.inflate(R.layout.news_list_item, container, false);
 
         // Activate SwipeRefreshLayout feature so news list is updated when screen in swiped
         swipeRefreshLayout = (SwipeRefreshLayout) homeView.findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(this);
         //find a reference to the list in the layout
-        newsListView = (ListView)homeView.findViewById(R.id.list_news);
+        newsListView = (ListView) homeView.findViewById(R.id.list_news);
 
         //set Empty View
-        emptyStateTextView = (TextView)homeView.findViewById(R.id.text_emptyView);
+        emptyStateTextView = (TextView) homeView.findViewById(R.id.text_emptyView);
         newsListView.setEmptyView(emptyStateTextView);
 
         //create a new adapter that takes list as input
         newsList = new ArrayList<NewsSegment>();
-        newsAdapter = new NewsAdapter(this.getContext(),newsList);
+        newsAdapter = new NewsAdapter(this.getContext(), newsList);
         newsListView.setAdapter(newsAdapter);
 
         // Get a reference to the ConnectivityManager to check state of network connectivity
@@ -126,7 +127,7 @@ public class NewsFragment extends Fragment implements LoaderCallbacks<List<NewsS
         Uri baseUri = Uri.parse(url);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
-        return new NewsLoader(getContext(),uriBuilder.toString());
+        return new NewsLoader(getContext(), uriBuilder.toString());
     }
 
     @Override
@@ -174,22 +175,25 @@ public class NewsFragment extends Fragment implements LoaderCallbacks<List<NewsS
 
     /**
      * Method to get News Section Name
+     *
      * @return section
      */
     public String getSection() {
         return getArguments().getString("section", "");
     }
 
-        /**
-         * Method to get Selected Menu Position
-         * @return menu position
-         */
+    /**
+     * Method to get Selected Menu Position
+     *
+     * @return menu position
+     */
     public int getMenuPosition() {
         return getArguments().getInt("position", 0);
     }
 
     /**
      * Method to check network connectivity
+     *
      * @return true/false
      */
     public boolean isConnected() {

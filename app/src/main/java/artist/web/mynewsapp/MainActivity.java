@@ -14,7 +14,9 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    /** Tag for the log messages */
+    /**
+     * Tag for the log messages
+     */
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     private static final String STATE_NEWS_SECTION = "section";
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity
 
     /**
      * Method to handle individual navigation item clicks
+     *
      * @param item
      * @return boolean flag
      */

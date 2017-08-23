@@ -27,8 +27,6 @@ import java.util.List;
 public class QueryUtils {
 
     private static final String LOG_TAG = QueryUtils.class.getName();
-    private static Context mContext;
-
     // News API keys
     private static final String API_RESPONSE = "response";
     private static final String API_RESULTS = "results";
@@ -37,6 +35,7 @@ public class QueryUtils {
     private static final String API_TITLE = "webTitle"; // same key used for news title and author name
     private static final String API_WEBURL = "webUrl";
     private static final String API_TAGS = "tags";
+    private static Context mContext;
 
 
     /**
@@ -184,7 +183,7 @@ public class QueryUtils {
             if (jsonResults.has(API_RESULTS)) {
                 newsArray = jsonResults.getJSONArray(API_RESULTS);
 
-                for (int i = 0; i < newsArray.length(); i++) {
+                for (int i = 0; newsArray!=null && i < newsArray.length(); i++) {
                     currentNewsItem = newsArray.getJSONObject(i);
 
                     if (currentNewsItem.has(API_TITLE)) {
@@ -240,6 +239,7 @@ public class QueryUtils {
 
     /**
      * Method to prepare the final URL to be used to fetch data
+     *
      * @param url
      * @return final url with all parameters appended
      */

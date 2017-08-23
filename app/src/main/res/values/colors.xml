@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3949AB</color>
+    <color name="colorPrimaryDark">#283593</color>
+    <color name="colorAccent">#F25334</color>
+    <color name="dateColor">#9C27B0</color>
+    <color name="titleColor">#4A148C</color>
+    <color name="news_list_bg">#3949AB</color>
+    <color name="cardview_bg">#C5CAE9</color>
+</resources>

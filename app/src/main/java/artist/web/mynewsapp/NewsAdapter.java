@@ -20,8 +20,7 @@ import java.util.List;
 public class NewsAdapter extends ArrayAdapter<NewsSegment> {
 
     private static final String LOG_TAG = NewsAdapter.class.getName();
-    private List<NewsSegment> newsList;
-    Context context;
+   
 
     public NewsAdapter(Context context, List<NewsSegment> newsList){
       super(context,0,newsList);
